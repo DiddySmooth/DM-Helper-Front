@@ -1,0 +1,49 @@
+.npcBox{
+    text-align: left;
+    border: 1px solid white;
+    margin: 5px;
+    width: 300px;
+    height: 30px;
+    padding-left: 2px;
+    padding-right: 2px;
+    display: flex;
+
+    align-items: center;
+}
+.npcBoxContainer{
+    width: 635px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    border: 3px solid grey;
+    text-align: center;
+    
+}
+.npcBoxHeader{
+    width: 600px;
+}
+.npcContainerButton{
+    background-color: grey;
+    border: 1px solid white;
+    color: white;
+    margin: 5px;
+}
+@keyframes createBox {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+.npc{
+    animation: createBox .25s;
+}
+.genIcon{
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+}

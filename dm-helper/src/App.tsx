@@ -1,24 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
+import {Route, Redirect} from 'react-router-dom'
 import './App.css';
+import TextInput from './Components/Inputs/Inputs';
+import Generators from './Pages/Generators/Generators';
+import NavBar from './Pages/Home/Components/NavBar';
+import Home from './Pages/Home/Home';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <NavBar />
+        <Route exact path="/home"><Home /></Route>
+        <Route exact path="/gen"><Generators /></Route>
+        <TextInput 
+            className="button"
+            text="Dude"
+        />
+        
     </div>
   );
 }
