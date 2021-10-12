@@ -11,11 +11,6 @@ function App() {
         <NavBar />
         <Route exact path="/home"><Home /></Route>
         <Route exact path="/gen"><Generators /></Route>
-        <TextInput 
-            className="button"
-            text="Dude"
-        />
-        
     </div>
   );
 }

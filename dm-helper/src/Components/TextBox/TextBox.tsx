@@ -16,7 +16,7 @@ const TextBoxStyles: CSS.Properties = {
 
 const TextBox = ({className, text, payload}:TextBoxProps) => {
     return(
-        <p className={className}>{text} {payload}</p>
+        <span className={className}>{text} {payload}</span>
     )
 }
 export default TextBox

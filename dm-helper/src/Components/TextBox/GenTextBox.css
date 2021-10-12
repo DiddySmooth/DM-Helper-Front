@@ -1,0 +1,14 @@
+.reloadImg{
+    width: 30px;
+    height: 30px;
+}
+.genBox{
+    border: 1px solid white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width: 300px;
+    height: 30px;
+    margin: 5px;
+    margin-bottom:10px;
+}

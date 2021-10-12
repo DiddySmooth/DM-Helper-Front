@@ -63,7 +63,7 @@ export const setAges = (race:string) => {
 
 export const setGenders = () => {
     let gender = Math.floor(Math.random() *  2)
-    if(gender == 0){
+    if(gender === 0){
         return("Male")
     }
     else{
@@ -91,4 +91,22 @@ export const setLooks = () => {
 
     return features
     
+}
+export const setSkinColors = () => {
+    return skinColors[Math.floor(Math.random() * skinColors.length)]
+}
+export const setSkinFeatures = () => {
+    return skinFeatures[Math.floor(Math.random() * skinFeatures.length)]
+}
+export const setHairColors = () => {
+    return hairColors[Math.floor(Math.random() * skinColors.length)]
+}
+export const setHairTextures = () => {
+    return hairTextures[Math.floor(Math.random() * hairTextures.length)]
+}
+export const setHairLengths = () => {
+    return hairLengths[Math.floor(Math.random() * hairLengths.length)]
+}
+export const setEyeColors = () => {
+    return eyeColors[Math.floor(Math.random() * eyeColors.length)]
 }
