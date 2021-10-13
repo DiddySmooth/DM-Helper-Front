@@ -23,14 +23,14 @@ const RandomNpc = () => {
     const [look, setLook] = useState<string[]>([])
 
     useEffect(() => {
-        setName(setNames(race))
+        setName(setNames(race, gender))
         setAge(setAges(race))
         
     },[race]);
 
     const npcGen = () => {
-        setRace(races[Math.floor(Math.random() * races.length)])
         setGender(setGenders())
+        setRace(races[Math.floor(Math.random() * races.length)])
         setJob(setJobs())
         setTrait(setTraits())
         setLook(setLooks())
@@ -43,7 +43,7 @@ const RandomNpc = () => {
     }
     const clickHandle = (payload: string) => {
         if(payload === "Race"){setRace(races[Math.floor(Math.random() * races.length)])}
-        else if(payload === "Name"){setName(setNames(race))}
+        else if(payload === "Name"){setName(setNames(race, gender))}
         else if(payload === "Gender"){setGender(setGenders())}
         else if(payload === "Job"){setJob(setJobs())}
         else if(payload === "Age"){setAge(setAges(race))}

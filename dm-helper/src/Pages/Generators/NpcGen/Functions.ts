@@ -1,13 +1,13 @@
-import { tabaxiNames, elfNames, jobs, traits, skinColors, skinFeatures, hairColors, hairTextures, hairLengths, eyeColors} from "./Arrays"
-export const setNames = (race:string) => {
+import { tabaxiNames, elfNames, jobs, traits, skinColors, skinFeatures, hairColors, hairTextures, hairLengths, eyeColors, NamesFemale, NamesMale} from "./Arrays"
+export const setNames = (race:string, gender:string) => {
     if(race === "Tabaxi"){
         return (tabaxiNames[Math.floor(Math.random() * tabaxiNames.length)])
     }
-    else if(race === "Elf"){
-        return (elfNames[Math.floor(Math.random() * elfNames.length)])
+    else if(gender === "Male"){
+        return (NamesMale[Math.floor(Math.random() * NamesMale.length)])
     }
     else{
-        return (elfNames[Math.floor(Math.random() * elfNames.length)])
+        return (NamesFemale[Math.floor(Math.random() * NamesFemale.length)])
     }
 }
 

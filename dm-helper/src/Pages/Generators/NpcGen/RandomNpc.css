@@ -1,4 +1,4 @@
-.npcBox{
+/* .npcBox{
     text-align: left;
     margin: 5px;
     padding-left: 2px;
@@ -6,7 +6,7 @@
     display: flex;
 
     align-items: center;
-}
+} */
 .npcBoxContainer{
     width: 635px;
     display: flex;
