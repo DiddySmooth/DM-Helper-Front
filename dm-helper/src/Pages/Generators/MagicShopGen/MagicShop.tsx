@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import GenTextBox from '../../../Components/TextBox/GenTextBox';
+import { RandomItem } from './Functions';
 import "./MagicShop.css"
 const RandomMagicShop = () => {
     const [owner, setOwner] = useState<string>()
@@ -12,7 +13,7 @@ const RandomMagicShop = () => {
     const [item6, setItem6] = useState<string>()
 
     const clickHandle = (payload: string) => {
-        console.log(payload)
+        console.log(RandomItem())
     }
 
     return (
