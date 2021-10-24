@@ -7,8 +7,8 @@ export interface StoreModel {
 }
 
 const model: StoreModel = {
-    name: "Kevin",
-    id: "1",
+    name: "",
+    id: "",
     setName: action((state, payload) => {
         state.name = payload;
     }),

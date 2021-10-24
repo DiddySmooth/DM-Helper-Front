@@ -1,11 +1,15 @@
-import Login from "../../Modules/Login"
-import Register from "../../Modules/Register"
+import Login from "../Login/Login"
+import Register from "../Register/Register"
 
 const Home = () => {
     return(
         <div>
-            <Login />
-            <Register />
+
+
+            Home Page TBD
+
+
+            
         </div>
     )
 }

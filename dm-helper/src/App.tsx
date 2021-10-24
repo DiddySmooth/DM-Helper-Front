@@ -2,11 +2,12 @@ import {Route, Redirect} from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import axios from "axios"
 import './App.css';
-import TextInput from './Components/Inputs/Inputs';
 import Generators from './Pages/Generators/Generators';
-import NavBar from './Pages/Home/Components/NavBar';
+import NavBar from './Modules/NavBar';
 import Home from './Pages/Home/Home';
-import { useStoreState, useStoreActions } from './Store/hooks';
+import { useStoreActions, useStoreState } from './Store/hooks';
+import Login from './Pages/Login/Login';
+import Register from './Pages/Register/Register';
 
 interface User {
     email: string;
@@ -15,11 +16,9 @@ interface User {
 }
 
 function App() {
-    const { name } = useStoreState((store) => store)
     const {setName} = useStoreActions(store => store)
-    const [user, setUser] = useState<User>()
-
     const userId = localStorage.getItem('userId')
+    const { name } = useStoreState((store) => store)
 
     const getUserInfo = async () => {
         if(userId === null){return}
@@ -40,10 +39,11 @@ function App() {
     },[])
   return (
     <div className="App">
-        <h1>Hello{name}</h1>
         <NavBar />
         <Route exact path="/home"><Home /></Route>
         <Route exact path="/gen"><Generators /></Route>
+        <Route exact path="/login">{name ? <Redirect to="/home" />:<Login />}</Route>
+        <Route exact path="/register">{name ? <Redirect to="/home" />:<Register />}</Route>
     </div>
   );
 }

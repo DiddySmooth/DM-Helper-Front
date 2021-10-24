@@ -1,6 +1,6 @@
-import TextInput from "../Components/Inputs/Inputs"
+import TextInput from "../../Components/Inputs/Inputs"
 import { useState } from "react"
-import { useStoreActions } from '../Store/hooks'
+import { useStoreActions } from '../../Store/hooks'
 import axios from "axios"
 
 
