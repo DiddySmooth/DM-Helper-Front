@@ -1,37 +1,32 @@
-import TextInput from "../Components/Inputs/Inputs"
-import { useState } from "react"
-import { useStoreActions } from '../Store/hooks'
+import {useState} from 'react'
 import axios from "axios"
 
-
-interface User {
-    id: string;
-    username: string;
-}
-
-const Login = () => {
+const Register = () => {
+    const [email, setEmail] = useState("")
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const {setName} = useStoreActions(store => store)
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         try {
-            let res = await axios.post<User>(`http://localhost:3001/user/login`, {
+            let res = await axios.post(`http://localhost:3001/user/create`, {
                 username: username,
                 password: password,
-                
+                email: email,
             })
-            localStorage.setItem('userId', res.data.id)
-            setName(username)
+            //
+            console.log(res)
         } catch (error) {
             console.log(error)
         }
     }
-
     return (
-      <div>
-          <form onSubmit={handleSubmit}>
+        <div>
+            <form onSubmit={handleSubmit}>
+                <div>
+                    <label>email</label>
+                    <input type ="text" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
+                </div>
                 <div>
                     <label>Username</label>
                     <input type ="text" placeholder="username" value={username} onChange={(e) => setUsername(e.target.value)}></input>
@@ -41,8 +36,8 @@ const Login = () => {
                     <input type ="text" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
                 </div>
                 <input type="submit"></input>
-          </form>
-      </div>
+            </form>
+        </div>
     )
 }
-export default Login
+export default Register
