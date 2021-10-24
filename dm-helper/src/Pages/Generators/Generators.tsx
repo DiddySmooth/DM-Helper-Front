@@ -4,6 +4,13 @@ import MagicShop from '../../Assets/magicShop.png'
 import RandomNpc from './NpcGen/RandomNpc';
 import RandomMagicShop from './MagicShopGen/MagicShop';
 import TownGen from './TownGen/TownGen';
+import CSS from 'csstype'
+
+const GenIcon: CSS.Properties = {
+    width: "50px",
+    height: "50px",
+    border: "1px solid black",
+}
 
 const Generators = () => {
 
@@ -34,9 +41,9 @@ const Generators = () => {
     }
     return(
         <div>
-            <img className="genIcon" src={Npc} onClick={ () => {clickHandle("NPC")}}/>
-            <img className="genIcon" src={MagicShop} onClick={ () => {clickHandle("MagicShop")}}/>
-            <img className="genIcon" src={Npc} onClick={ () => {clickHandle("Town")}}/>
+            <img style={GenIcon} src={Npc} onClick={ () => {clickHandle("NPC")}}/>
+            <img style={GenIcon} src={MagicShop} onClick={ () => {clickHandle("MagicShop")}}/>
+            <img style={GenIcon} src={Npc} onClick={ () => {clickHandle("Town")}}/>
             {npc && <RandomNpc />}
             {magicShop && <RandomMagicShop />}
             {town && <TownGen />}

@@ -1,7 +1,23 @@
-import React, { useState } from 'react';
+import { useState, MouseEvent } from 'react';
+import CSS from 'csstype'
+
+import Button from '../../../Components/Buttons/Button';
 import GenTextBox from '../../../Components/TextBox/GenTextBox';
 import { RandomItem } from './Functions';
-import "./MagicShop.css"
+
+
+const GenBoxContainerStyle: CSS.Properties = {
+    width: "635px",
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "black",
+    color: "white",
+    border: "3px solid black",
+    textAlign: "center",
+}
+
 const RandomMagicShop = () => {
     const [owner, setOwner] = useState<string>()
     const [name, setName] = useState<string>()
@@ -12,22 +28,33 @@ const RandomMagicShop = () => {
     const [item5, setItem5] = useState<string>()
     const [item6, setItem6] = useState<string>()
 
-    const clickHandle = (payload: string) => {
-        console.log(RandomItem())
+    const onClick = (event : MouseEvent) =>{
+        event.preventDefault();
+        const elem = event.currentTarget
+        if(!(elem instanceof HTMLButtonElement)) return;
+
+        if(elem.value ==="Name"){setName("Magic Store")}
+        else if(elem.value === "Owner"){setOwner("Bill Nye")}
+        else if(elem.value === "Item1"){setItem1(RandomItem().name)}
+        else if(elem.value === "Item2"){setItem2(RandomItem().name)}
+        else if(elem.value === "Item3"){setItem3(RandomItem().name)}
+        else if(elem.value === "Item4"){setItem4(RandomItem().name)}
+        else if(elem.value === "Item5"){setItem5(RandomItem().name)}
+        else if(elem.value === "Item6"){setItem6(RandomItem().name)}
     }
 
     return (
-      <div className="GenBoxContainer">
-          <h1 className="GenHeader">Magic Shop</h1>
-          <GenTextBox className=""payload={name}text="Name: " onClick={() => clickHandle("Name")}/>
-          <GenTextBox className=""payload={owner}text="Owner: " onClick={() => clickHandle("Owner")}/>
-          <GenTextBox className=""payload={item1}text="Item 1: " onClick={() => clickHandle("Item1")}/>
-          <GenTextBox className=""payload={item2}text="Item 2: " onClick={() => clickHandle("Item2")}/>
-          <GenTextBox className=""payload={item3}text="Item 3: " onClick={() => clickHandle("Item3")}/>
-          <GenTextBox className=""payload={item4}text="Item 4: " onClick={() => clickHandle("Item4")}/>
-          <GenTextBox className=""payload={item5}text="Item 5: " onClick={() => clickHandle("Item5")}/>
-          <GenTextBox className=""payload={item6}text="Item 6: " onClick={() => clickHandle("Item6")}/>
-
+        <div style={GenBoxContainerStyle}>
+            <h1 className="GenHeader" style={{width: "600px"}}>Magic Shop</h1>
+            <GenTextBox className=""payload={name}text="Name: " onClick={onClick} value="Name"/>
+            <GenTextBox className=""payload={owner}text="Owner: " onClick={onClick} value="Owner"/>
+            <GenTextBox className=""payload={item1}text="Item 1: " onClick={onClick} value="Item1"/>
+            <GenTextBox className=""payload={item2}text="Item 2: " onClick={onClick} value="Item2"/>
+            <GenTextBox className=""payload={item3}text="Item 3: " onClick={onClick} value="Item3"/>
+            <GenTextBox className=""payload={item4}text="Item 4: " onClick={onClick} value="Item4"/>
+            <GenTextBox className=""payload={item5}text="Item 5: " onClick={onClick} value="Item5"/>
+            <GenTextBox className=""payload={item6}text="Item 6: " onClick={onClick} value="Item6"/>
+            <Button className="MagicShopButton" text="New Shop" onClick={onClick} value="Gen"/>
       </div>
     )
 }

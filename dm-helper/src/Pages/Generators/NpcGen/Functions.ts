@@ -1,3 +1,4 @@
+import { isJSDocAugmentsTag } from "typescript"
 import { tabaxiNames, elfNames, jobs, traits, skinColors, skinFeatures, hairColors, hairTextures, hairLengths, eyeColors, NamesFemale, NamesMale} from "./Arrays"
 export const setNames = (race:string, gender:string) => {
     if(race === "Tabaxi"){
@@ -14,51 +15,50 @@ export const setNames = (race:string, gender:string) => {
 let race80 = ["Tabaxi", "Human", "Dragonborn", "Half-Orc", "Tiefling", "Goliath", "Changeling", "Locathah", "Centaur", "Loxodon", "Minotaur", "Hobgoblin", "Bugbear", "Yuan-ti", "Satyr"]
 
 export const setAges = (race:string) => {
+    let age = "30"
     if(race === "Aarakocra"){
-        return Math.floor(Math.random() * 30)
+        age = Math.floor(Math.random() * 30).toString()
     }
     else if(race === "Orc"){
-        return Math.floor(Math.random() * 45)
+        age = Math.floor(Math.random() * 45).toString()
     }
     else if(race === "Lizardfolk" || race === "Goblin"){
-        return Math.floor(Math.random() * 60)
+        age = Math.floor(Math.random() * 60).toString()
     }
     else if(race80.includes(race)){
-        return Math.floor(Math.random() * 80)
+        age = Math.floor(Math.random() * 80).toString()
     }
     else if(race === "Leonin"){
-        return Math.floor(Math.random() * 100)
+        age = Math.floor(Math.random() * 100).toString()
     }
     else if(race === "Genasi" || race === "Kobold"){
-        return Math.floor(Math.random() * 120)
+        age = Math.floor(Math.random() * 120).toString()
     }
     else if(race === "Half-Elf"){
-        return Math.floor(Math.random() * 180)
+        age = Math.floor(Math.random() * 180).toString()
     }
     else if(race === "Triton"){
-        return Math.floor(Math.random() * 200)
+        age = Math.floor(Math.random() * 200).toString()
     }
     else if(race === "Halfling"){
-        return Math.floor(Math.random() * 250)
+        age = Math.floor(Math.random() * 250).toString()
     }
     else if(race === "Dwarf"){
-        return Math.floor(Math.random() * 350)
+        age = Math.floor(Math.random() * 350).toString()
     }
     else if(race === "Loxodon"){
-        return Math.floor(Math.random() * 450)
+        age = Math.floor(Math.random() * 450).toString()
     }
     else if(race === "Gnome" || race === "Firbolg"){
-        return Math.floor(Math.random() * 500)
+        age = Math.floor(Math.random() * 500).toString()
     }
     else if(race === "Elf"){
-        return Math.floor(Math.random() * 750)
+        age = Math.floor(Math.random() * 750).toString()
     }
     else if(race === "Tortle" || race === "Warforged"){
-        return Math.floor(Math.random() * 1000)
+        age = Math.floor(Math.random() * 1000).toString()
     }
-    else{
-        return 30;
-    }
+    return age
 }
 
 export const setGenders = () => {
@@ -80,18 +80,6 @@ export const setTraits = () => {
     return(traits[Math.floor(Math.random() * traits.length)])
 }
 
-export const setLooks = () => {
-    let features = []
-    features.push(skinColors[Math.floor(Math.random() * skinColors.length)])
-    features.push(skinFeatures[Math.floor(Math.random() * skinFeatures.length)])
-    features.push(hairColors[Math.floor(Math.random() * skinColors.length)])
-    features.push(hairTextures[Math.floor(Math.random() * hairTextures.length)])
-    features.push(hairLengths[Math.floor(Math.random() * hairLengths.length)])
-    features.push(eyeColors[Math.floor(Math.random() * eyeColors.length)])
-
-    return features
-    
-}
 export const setSkinColors = () => {
     return skinColors[Math.floor(Math.random() * skinColors.length)]
 }

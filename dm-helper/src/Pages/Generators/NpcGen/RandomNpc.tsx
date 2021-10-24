@@ -1,89 +1,115 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, MouseEvent } from 'react';
+import CSS from 'csstype'
 import GenTextBox from '../../../Components/TextBox/GenTextBox';
+import Button from '../../../Components/Buttons/Button';
 import { races } from "./Arrays"
-import { setNames, setAges, setGenders, setJobs, setTraits, setLooks, setEyeColors, setHairColors, setHairLengths, setHairTextures, setSkinColors, setSkinFeatures } from "./Functions"
+import { setNames, setAges, setGenders, setJobs, setTraits, setEyeColors, setHairColors, setHairLengths, setHairTextures, setSkinColors, setSkinFeatures } from "./Functions"
 import "./RandomNpc.css"
+
+const GenBoxContainerStyle: CSS.Properties = {
+    width: "635px",
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "black",
+    color: "white",
+    border: "3px solid black",
+    textAlign: "center",
+}
 
 const RandomNpc = () => {
 
-    const [race, setRace] = useState<string>("")
-    const [name, setName] = useState<string>("")
-    const [age, setAge] = useState<number>()
-    const [gender, setGender] = useState<string>("")
-    const [job, setJob] = useState<string>("")
-    const [trait, setTrait] = useState<string>("")
+    const [npc, setNpc] = useState({ 
+        race: "",
+        name: "",
+        age: "",
+        gender: "",
+        job: "",
+        trait: "",
+        skinColor: "",
+        skinFeature: "",
+        hairColor: "",
+        hairTexture: "",
+        hairLength: "",
+        eyeColor: "",
+    });
 
-    const [skinColor, setSkinColor] = useState<string>("")
-    const [skinFeature, setSkinFeature] = useState<string>("")
-    const [hairColor, setHairColor] = useState<string>("")
-    const [hairTexture, setHairTexture] = useState<string>("")
-    const [hairLength, setHairLength] = useState<string>("")
-    const [eyeColor, setEyeColor] = useState<string>("")
-    
-    const [look, setLook] = useState<string[]>([])
+
 
     useEffect(() => {
-        setName(setNames(race, gender))
-        setAge(setAges(race))
+        setNpc(prevState => ({...prevState, name: (setNames(npc.race, npc.gender))}))
+        setNpc(prevState => ({...prevState, age: (setAges(npc.race))}))
         
-    },[race]);
+    },[npc.race]);
+
+    useEffect(() => {
+        npcGen()
+    }, [])
+
+
 
     const npcGen = () => {
-        setGender(setGenders())
-        setRace(races[Math.floor(Math.random() * races.length)])
-        setJob(setJobs())
-        setTrait(setTraits())
-        setLook(setLooks())
-        setSkinColor(setSkinColors())
-        setSkinFeature(setSkinFeatures())
-        setHairColor(setHairColors())
-        setHairTexture(setHairTextures())
-        setHairLength(setHairLengths())
-        setEyeColor(setEyeColors())
+        setNpc(prevState => ({...prevState, gender: (setGenders())}))
+        setNpc(prevState => ({...prevState, race: (races[Math.floor(Math.random() * races.length)])}))
+        setNpc(prevState => ({...prevState, job: (setJobs())}))
+        setNpc(prevState => ({...prevState, trait: (setTraits())}))
+        setNpc(prevState => ({...prevState, skinColor: (setSkinColors())}))
+        setNpc(prevState => ({...prevState, skinFeature: (setSkinFeatures())}))
+        setNpc(prevState => ({...prevState, hairColor: setHairColors()}))
+        setNpc(prevState => ({...prevState, hairTexture: setHairTextures()}))
+        setNpc(prevState => ({...prevState, hairLength: setHairLengths()}))
+        setNpc(prevState => ({...prevState, eyeColor: setHairColors()}))
     }
-    const clickHandle = (payload: string) => {
-        if(payload === "Race"){setRace(races[Math.floor(Math.random() * races.length)])}
-        else if(payload === "Name"){setName(setNames(race, gender))}
-        else if(payload === "Gender"){setGender(setGenders())}
-        else if(payload === "Job"){setJob(setJobs())}
-        else if(payload === "Age"){setAge(setAges(race))}
-        else if(payload === "Traits"){setTrait(setTraits())}
-        else if(payload === "Skin Color"){setSkinColor(setSkinColors())}
-        else if(payload === "Skin Feature"){setSkinFeature(setSkinFeatures())}
-        else if(payload === "Hair Color"){setHairColor(setHairColors())}
-        else if(payload === "Hair Texture"){setHairTexture(setHairTextures())}
-        else if(payload === "Hair Length"){setHairLength(setHairLengths())}
-        else if(payload === "Eye Color"){setEyeColor(setEyeColors())}
-        
+
+    const onClick = (event : MouseEvent) => {
+        event.preventDefault();
+        const elem = event.currentTarget
+        if(!(elem instanceof HTMLButtonElement)) return;
+
+        if(elem.value === "Race"){setNpc(prevState => ({...prevState, race: (races[Math.floor(Math.random() * races.length)])}))}
+        else if(elem.value === "Name"){setNpc(prevState => ({...prevState, name: (setNames(npc.race, npc.gender))}))}
+        else if(elem.value === "Gender"){setNpc(prevState => ({...prevState, gender: (setGenders())}))}
+        else if(elem.value === "Job"){setNpc(prevState => ({...prevState, job: (setJobs())}))}
+        else if(elem.value === "Age"){setNpc(prevState => ({...prevState, age: (setAges(npc.race))}))}
+        else if(elem.value === "Traits"){setNpc(prevState => ({...prevState, trait: (setTraits())}))}
+        else if(elem.value === "Skin Color"){setNpc(prevState => ({...prevState, skinColor: (setSkinColors())}))}
+        else if(elem.value === "Skin Feature"){setNpc(prevState => ({...prevState, skinFeature: (setSkinFeatures())}))}
+        else if(elem.value === "Hair Color"){setNpc(prevState => ({...prevState, hairColor: setHairColors()}))}
+        else if(elem.value === "Hair Texture"){setNpc(prevState => ({...prevState, hairTexture: setHairTextures()}))}
+        else if(elem.value === "Hair Length"){setNpc(prevState => ({...prevState, hairLength: setHairLengths()}))}
+        else if(elem.value === "Eye Color"){setNpc(prevState => ({...prevState, eyeColor: setEyeColors()}))}
     }
     
     const textExport = () =>{
-        navigator.clipboard.writeText(`Name: ${name} Race: ${race} Gender: ${gender} Profession: ${job} Age: ${age} Personality Trait ${trait} 
-        Skin Color: ${look[0]} Skin Feature: ${look[1]} Hair Color: ${look[2]} Hair Texture: ${look[3]} Hair Length: ${look[4]} Eye Color: ${look[5]}`)
+        navigator.clipboard.writeText(`Name: ${npc.name} Race: ${npc.race} Gender: ${npc.gender} Profession: ${npc.job} Age: ${npc.age} Personality Trait ${npc.trait} 
+        Skin Color: ${npc.skinColor} Skin Feature: ${npc.skinFeature} Hair Color: ${npc.hairColor} Hair Texture: ${npc.hairTexture} Hair Length: ${npc.hairLength} Eye Color: ${npc.eyeColor}`)
     }
     
     
     return(
         <div className ="npc">
-            <div className="npcBoxContainer">
-                <h1 className="npcBoxHeader">General Info</h1>
-                <GenTextBox className="npcBox"payload={name}text="Name: " onClick={() => clickHandle("Name")}/>
-                <GenTextBox className="npcBox"payload={race}text="Race: " onClick={() => clickHandle("Race")}/>
-                <GenTextBox className="npcBox"payload={gender}text="Gender: " onClick={() => clickHandle("Gender")}/>
-                <GenTextBox className="npcBox"payload={job}text="Profession: " onClick={() => clickHandle("Job")}/>
-                <GenTextBox className="npcBox"payload={age}text="Age: "  onClick={() => clickHandle("Age")}/>
-                <GenTextBox className="npcBox"payload={trait}text="Personality Trait: " onClick={() => clickHandle("Traits")}/>
+            <div style={GenBoxContainerStyle}>
+                <h1 style={{width: "600px"}}>General Info</h1>
+                <GenTextBox className="npcBox"payload={npc.name}text="Name: " onClick={onClick} value="Name"/>
+                <GenTextBox className="npcBox"payload={npc.race}text="Race: " onClick={onClick} value= "Race"/>
+                <GenTextBox className="npcBox"payload={npc.gender}text="Gender: " onClick={onClick} value= "Gender"/>
+                <GenTextBox className="npcBox"payload={npc.job}text="Profession: " onClick={onClick}  value="Job"/>
+                <GenTextBox className="npcBox"payload={npc.age}text="Age: "  onClick={onClick} value="Age"/>
+                <GenTextBox className="npcBox"payload={npc.trait}text="Personality Trait: " onClick={onClick} value="Traits"/>
             </div>
-            <div className="npcBoxContainer">
-                <h1 className="npcBoxHeader">Appearance</h1>
-                <GenTextBox className="npcBox"payload={skinColor}text="Skin Color: " onClick={() => clickHandle("Skin Color")}/>
-                <GenTextBox className="npcBox"payload={skinFeature}text="Skin Feature: " onClick={() => clickHandle("Skin Feature")}/>
-                <GenTextBox className="npcBox"payload={hairColor}text="Hair Color: " onClick={() => clickHandle("Hair Color")}/>
-                <GenTextBox className="npcBox"payload={hairTexture}text="Hair Texture: " onClick={() => clickHandle("Hair Texture")}/>
-                <GenTextBox className="npcBox"payload={hairLength}text="Hair Length: " onClick={() => clickHandle("Hair Length")}/>
-                <GenTextBox className="npcBox"payload={eyeColor}text="Eye Color: " onClick={() => clickHandle("Eye Color")}/>
-                <button onClick={ () => npcGen()}className="npcContainerButton">New NPC</button>
-                <button onClick={ () => textExport()}className="npcContainerButton">Export</button>
+            <div style={GenBoxContainerStyle}>
+                <h1 style={{width: "600px"}}>Appearance</h1>
+                <GenTextBox className="npcBox"payload={npc.skinColor}text="Skin Color: " onClick={onClick} value="Skin Color"/>
+                <GenTextBox className="npcBox"payload={npc.skinFeature}text="Skin Feature: " onClick={onClick} value="Skin Feature"/>
+                <GenTextBox className="npcBox"payload={npc.hairColor}text="Hair Color: " onClick={onClick} value="Hair Color"/>
+                <GenTextBox className="npcBox"payload={npc.hairTexture}text="Hair Texture: " onClick={onClick} value="Hair Texture"/>
+                <GenTextBox className="npcBox"payload={npc.hairLength}text="Hair Length: " onClick={onClick} value="Hair Length"/>
+                <GenTextBox className="npcBox"payload={npc.eyeColor}text="Eye Color: " onClick={onClick} value="Eye Color"/>
+                <div style={{display: "flex", justifyContent: "space-between"}}>
+                    <Button  text="New NPC"onClick={npcGen} value="new"/>
+                    <Button text="Export"onClick={textExport} value="new"/>
+                </div>
             </div>
         </div>
     )
