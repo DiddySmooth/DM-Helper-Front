@@ -17,7 +17,7 @@ const Login = () => {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         try {
-            let res = await axios.post<User>(`http://localhost:3001/user/login`, {
+            let res = await axios.post<User>(`${process.env.REACT_APP_BACKEND}/user/login`, {
                 username: username,
                 password: password,
                 

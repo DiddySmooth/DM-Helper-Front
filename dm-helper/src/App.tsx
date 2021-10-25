@@ -23,7 +23,7 @@ function App() {
     const getUserInfo = async () => {
         if(userId === null){return}
         try{
-            let user = await axios.get<User>(`http://localhost:3001/user/getinfo`, {
+            let user = await axios.get<User>(`${process.env.REACT_APP_BACKEND}/user/getinfo`, {
                 headers:{
                     Authorization: userId
                 }

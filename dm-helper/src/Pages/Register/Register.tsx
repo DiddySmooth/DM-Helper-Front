@@ -9,7 +9,7 @@ const Register = () => {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         try {
-            let res = await axios.post(`http://localhost:3001/user/create`, {
+            let res = await axios.post(`${process.env.REACT_APP_BACKEND}/user/create`, {
                 username: username,
                 password: password,
                 email: email,
