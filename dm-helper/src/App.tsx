@@ -8,8 +8,8 @@ import Home from './Pages/Home/Home';
 import { useStoreActions, useStoreState } from './Store/hooks';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
-import Button from './Components/Buttons/Button/Button';
-import Sidebar from './Components/Containers/Sidebar/Sidebar';
+
+
 
 interface User {
     email: string;
@@ -40,7 +40,7 @@ function App() {
         getUserInfo()
     },[])
   return (
-    <div className="App">
+    <div className="App" >
         <NavBar />
         <Route exact path="/home"><Home /></Route>
         <Route exact path="/gen"><Generators /></Route>

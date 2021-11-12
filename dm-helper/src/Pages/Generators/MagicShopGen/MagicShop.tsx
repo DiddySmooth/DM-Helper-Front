@@ -54,7 +54,7 @@ const RandomMagicShop = () => {
             <GenTextBox className=""payload={item4}text="Item 4: " onClick={onClick} value="Item4"/>
             <GenTextBox className=""payload={item5}text="Item 5: " onClick={onClick} value="Item5"/>
             <GenTextBox className=""payload={item6}text="Item 6: " onClick={onClick} value="Item6"/>
-            <Button className="MagicShopButton" text="New Shop" onClick={onClick} value="Gen"/>
+            <Button text="New Shop" onClick={onClick} value="Gen"/>
       </div>
     )
 }

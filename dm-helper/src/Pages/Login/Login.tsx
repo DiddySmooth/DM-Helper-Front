@@ -1,15 +1,18 @@
-import TextInput from "../../Components/Inputs/Inputs"
 import { useState } from "react"
-import { useStoreActions } from '../../Store/hooks'
-import axios from "axios"
 import CSS from 'csstype'
+
+//Components
+import TextInput from "../../Components/Inputs/Inputs"
 import SubmitButton from "../../Components/Buttons/SubmitButton/SubmitButton"
 import Label from "../../Components/Labels/Label"
 
-interface User {
-    id: string;
-    username: string;
-}
+//Api
+import { apiUserLogin } from "../../API/User/users"
+
+//Store
+import { useStoreActions } from '../../Store/hooks'
+
+
 const LoginStyles: CSS.Properties = {
     display: "flex",
     flexDirection: "column",
@@ -31,17 +34,11 @@ const Login = () => {
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
-        try {
-            let res = await axios.post<User>(`${process.env.REACT_APP_BACKEND}/user/login`, {
-                username: username,
-                password: password,
-                
-            })
-            localStorage.setItem('userId', res.data.id)
-            setName(username)
-        } catch (error) {
-            console.log(error)
-        }
+        let res = await apiUserLogin(username, password)
+        
+        localStorage.setItem('userId', res.data.id)
+        setName(username)
+        
     }
 
     return (

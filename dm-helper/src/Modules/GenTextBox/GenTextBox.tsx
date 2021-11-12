@@ -3,6 +3,7 @@ import image from "../../Assets/reload.png"
 import { MouseEvent } from "react"
 import CSS from 'csstype'
 import Button from "../../Components/Buttons/Button/Button"
+import PictureButton from "../../Components/Buttons/PictureButton/PictureButton"
 export type GenTextBoxProps = {
     className: string;
     payload: any;
@@ -16,12 +17,12 @@ const GenBoxStyles: CSS.Properties = {
     justifyContent: "space-between",
     alignItems: "center",
     width: "12rem",
-    height: "30px",
-    margin: "1rem",
+    height: "20px",
+    fontSize: "12px",
 }
 const ReloadImgStyles: CSS.Properties = {
-    width: "25px",
-    height: "25px",
+    width: "10px",
+    height: "10px",
 }
 const ButtonImageStyles: CSS.Properties = {
     border: "none"
@@ -31,12 +32,11 @@ const GenTextBox = ({className, text, payload, onClick, value}:GenTextBoxProps) 
     return(
         <div style={GenBoxStyles}>
             <TextBox className={className} text={text} payload={payload}/>
-            <button onClick={onClick} value={value} style={ButtonImageStyles}>
-            <img 
+            <PictureButton 
+                onClick={onClick} 
+                value={value}
                 src={image}
-                style={ReloadImgStyles}
             />
-            </button>
         </div>
     )
 }

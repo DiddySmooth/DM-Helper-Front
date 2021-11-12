@@ -18,7 +18,7 @@ const GenBoxContainerStyle: CSS.Properties = {
 }
 
 const RandomNpc = () => {
-
+    // work on making this an interface 
     const [npc, setNpc] = useState({ 
         race: "",
         name: "",
@@ -34,8 +34,6 @@ const RandomNpc = () => {
         eyeColor: "",
     });
 
-
-
     useEffect(() => {
         setNpc(prevState => ({...prevState, name: (setNames(npc.race, npc.gender))}))
         setNpc(prevState => ({...prevState, age: (setAges(npc.race))}))
@@ -45,8 +43,6 @@ const RandomNpc = () => {
     useEffect(() => {
         npcGen()
     }, [])
-
-
 
     const npcGen = () => {
         setNpc(prevState => ({...prevState, gender: (setGenders())}))
@@ -81,8 +77,10 @@ const RandomNpc = () => {
     }
     
     const textExport = () =>{
-        navigator.clipboard.writeText(`Name: ${npc.name} Race: ${npc.race} Gender: ${npc.gender} Profession: ${npc.job} Age: ${npc.age} Personality Trait ${npc.trait} 
-        Skin Color: ${npc.skinColor} Skin Feature: ${npc.skinFeature} Hair Color: ${npc.hairColor} Hair Texture: ${npc.hairTexture} Hair Length: ${npc.hairLength} Eye Color: ${npc.eyeColor}`)
+        navigator.clipboard.writeText(`Name: ${npc.name} Race: ${npc.race} 
+        Gender: ${npc.gender} Profession: ${npc.job} Age: ${npc.age} Personality Trait ${npc.trait} 
+        Skin Color: ${npc.skinColor} Skin Feature: ${npc.skinFeature} Hair Color: ${npc.hairColor} 
+        Hair Texture: ${npc.hairTexture} Hair Length: ${npc.hairLength} Eye Color: ${npc.eyeColor}`)
     }
     
     
@@ -96,8 +94,6 @@ const RandomNpc = () => {
                 <GenTextBox className="npcBox"payload={npc.job}text="Profession: " onClick={onClick}  value="Job"/>
                 <GenTextBox className="npcBox"payload={npc.age}text="Age: "  onClick={onClick} value="Age"/>
                 <GenTextBox className="npcBox"payload={npc.trait}text="Personality Trait: " onClick={onClick} value="Traits"/>
-            </div>
-            <div style={GenBoxContainerStyle}>
                 <h1 style={{width: "600px"}}>Appearance</h1>
                 <GenTextBox className="npcBox"payload={npc.skinColor}text="Skin Color: " onClick={onClick} value="Skin Color"/>
                 <GenTextBox className="npcBox"payload={npc.skinFeature}text="Skin Feature: " onClick={onClick} value="Skin Feature"/>

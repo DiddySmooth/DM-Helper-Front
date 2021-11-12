@@ -1,10 +1,16 @@
 import {useState} from 'react'
-import axios from "axios"
+import CSS from 'csstype'
+
+//Components
 import Label from '../../Components/Labels/Label'
 import TextInput from '../../Components/Inputs/Inputs'
 import SubmitButton from '../../Components/Buttons/SubmitButton/SubmitButton'
-import CSS from 'csstype'
 
+//api
+import { apiUserRegister } from '../../API/User/users'
+
+//store
+import { useStoreActions } from '../../Store/hooks'
 
 const RegisterStyles: CSS.Properties = {
     display: "flex",
@@ -24,20 +30,17 @@ const Register = () => {
     const [email, setEmail] = useState("")
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const {setName} = useStoreActions(store => store)
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
-        try {
-            let res = await axios.post(`${process.env.REACT_APP_BACKEND}/user/create`, {
-                username: username,
-                password: password,
-                email: email,
-            })
-            //
-            console.log(res)
-        } catch (error) {
-            console.log(error)
+        let res = await apiUserRegister(username, password, email)
+        console.log(res)
+        if(!(res.data.hasOwnProperty("error"))){
+            localStorage.setItem('userId', res.data.id)
+            setName(username)
         }
+
     }
     return (
         <div style={RegisterStyles}>

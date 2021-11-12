@@ -1,7 +1,11 @@
 import CSS from 'csstype'
-import Button from '../../Components/Buttons/Button/Button'
 import { useState, MouseEvent } from "react"
+
+//components
+import Button from '../../Components/Buttons/Button/Button'
 import RandomNpc from '../../Pages/Generators/NpcGen/RandomNpc'
+
+
 
 export type GenVariant = | "npc" | "magic" | "town" | "none"
 
@@ -13,6 +17,7 @@ const GenContainerStyles: CSS.Properties = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#fffaf0"
 }
 const MenuStyles: CSS.Properties = {
     display: "flex",
