@@ -2,12 +2,27 @@ import TextInput from "../../Components/Inputs/Inputs"
 import { useState } from "react"
 import { useStoreActions } from '../../Store/hooks'
 import axios from "axios"
-
+import CSS from 'csstype'
+import SubmitButton from "../../Components/Buttons/SubmitButton/SubmitButton"
+import Label from "../../Components/Labels/Label"
 
 interface User {
     id: string;
     username: string;
 }
+const LoginStyles: CSS.Properties = {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    border: "1px solid black",
+    width: "18rem",
+    padding: "2rem",
+    marginTop: "10rem",
+    borderRadius: "5px",
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.3)',
+    backgroundColor: "#fffaf0",
+};
 
 const Login = () => {
     const [username, setUsername] = useState("")
@@ -30,17 +45,13 @@ const Login = () => {
     }
 
     return (
-      <div>
+      <div style={LoginStyles}>
           <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Username</label>
-                    <input type ="text" placeholder="username" value={username} onChange={(e) => setUsername(e.target.value)}></input>
-                </div>
-                <div>
-                    <label>Password</label>
-                    <input type ="text" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
-                </div>
-                <input type="submit"></input>
+                <Label text="Username"/> 
+                <TextInput text="Username" onChange={(e) => setUsername(e.target.value)} value={username}/>
+                <Label text="Password"/> 
+                <TextInput text="Password" onChange={(e) => setPassword(e.target.value)} value={password}/>
+                <SubmitButton value="Login"/>
           </form>
       </div>
     )

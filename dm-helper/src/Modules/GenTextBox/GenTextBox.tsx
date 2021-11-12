@@ -1,25 +1,23 @@
-import TextBox from "./TextBox"
+import TextBox from "../../Components/TextBox/TextBox"
 import image from "../../Assets/reload.png"
 import { MouseEvent } from "react"
 import CSS from 'csstype'
+import Button from "../../Components/Buttons/Button/Button"
 export type GenTextBoxProps = {
     className: string;
     payload: any;
     text: string;
     onClick: (event: MouseEvent) => void;
-    value?: string;
+    value: string;
 }
 const GenBoxStyles: CSS.Properties = {
     border: "1px solid white",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    width: "300px",
+    width: "12rem",
     height: "30px",
-    margin: "5px",
-    marginBottom: "10px",
-    backgroundColor: "black",
-    color: "white",
+    margin: "1rem",
 }
 const ReloadImgStyles: CSS.Properties = {
     width: "25px",

@@ -1,5 +1,24 @@
 import {useState} from 'react'
 import axios from "axios"
+import Label from '../../Components/Labels/Label'
+import TextInput from '../../Components/Inputs/Inputs'
+import SubmitButton from '../../Components/Buttons/SubmitButton/SubmitButton'
+import CSS from 'csstype'
+
+
+const RegisterStyles: CSS.Properties = {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    border: "1px solid black",
+    width: "18rem",
+    padding: "2rem",
+    marginTop: "10rem",
+    borderRadius: "5px",
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.3)',
+    backgroundColor: "#fffaf0",
+};
 
 const Register = () => {
     const [email, setEmail] = useState("")
@@ -21,21 +40,16 @@ const Register = () => {
         }
     }
     return (
-        <div>
+        <div style={RegisterStyles}>
+            <h1>Register</h1>
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label>email</label>
-                    <input type ="text" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
-                </div>
-                <div>
-                    <label>Username</label>
-                    <input type ="text" placeholder="username" value={username} onChange={(e) => setUsername(e.target.value)}></input>
-                </div>
-                <div>
-                    <label>Password</label>
-                    <input type ="text" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
-                </div>
-                <input type="submit"></input>
+                <Label text="Email" />
+                <TextInput text="Email" onChange={(e) => setEmail(e.target.value)} value={email}/>
+                <Label text="Username" />
+                <TextInput text="Username" onChange={(e) => setUsername(e.target.value)} value={username}/>
+                <Label text="Password" />
+                <TextInput text="Password" onChange={(e) => setPassword(e.target.value)} value={password}/>
+                <SubmitButton value="Register"/>
             </form>
         </div>
     )

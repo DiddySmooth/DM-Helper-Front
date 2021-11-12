@@ -1,19 +1,18 @@
 import { useState, useEffect, MouseEvent } from 'react';
 import CSS from 'csstype'
-import GenTextBox from '../../../Components/TextBox/GenTextBox';
-import Button from '../../../Components/Buttons/Button';
+import GenTextBox from '../../../Modules/GenTextBox/GenTextBox';
+import Button from '../../../Components/Buttons/Button/Button';
 import { races } from "./Arrays"
 import { setNames, setAges, setGenders, setJobs, setTraits, setEyeColors, setHairColors, setHairLengths, setHairTextures, setSkinColors, setSkinFeatures } from "./Functions"
 import "./RandomNpc.css"
 
 const GenBoxContainerStyle: CSS.Properties = {
-    width: "635px",
+    width: "25rem",
+    height: "25rem",
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "black",
-    color: "white",
     border: "3px solid black",
     textAlign: "center",
 }

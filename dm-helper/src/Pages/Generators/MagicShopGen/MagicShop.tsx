@@ -1,8 +1,8 @@
 import { useState, MouseEvent } from 'react';
 import CSS from 'csstype'
 
-import Button from '../../../Components/Buttons/Button';
-import GenTextBox from '../../../Components/TextBox/GenTextBox';
+import Button from '../../../Components/Buttons/Button/Button';
+import GenTextBox from '../../../Modules/GenTextBox/GenTextBox';
 import { RandomItem } from './Functions';
 
 

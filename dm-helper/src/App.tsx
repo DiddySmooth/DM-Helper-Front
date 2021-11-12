@@ -3,11 +3,13 @@ import {useState, useEffect} from 'react'
 import axios from "axios"
 import './App.css';
 import Generators from './Pages/Generators/Generators';
-import NavBar from './Modules/NavBar';
+import NavBar from './Modules/NavBar/NavBar';
 import Home from './Pages/Home/Home';
 import { useStoreActions, useStoreState } from './Store/hooks';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
+import Button from './Components/Buttons/Button/Button';
+import Sidebar from './Components/Containers/Sidebar/Sidebar';
 
 interface User {
     email: string;
