@@ -20,6 +20,7 @@ const GenContainerStyles: CSS.Properties = {
     alignItems: "center",
     backgroundColor: "#fffaf0",
     flexDirection: "column",
+    position: "relative",
 }
 const MenuStyles: CSS.Properties = {
     display: "flex",
@@ -62,7 +63,7 @@ const GenContainer = () => {
             {!plusMenu &&(
                 !addMenuOpen &&(
                     <button 
-                    style={{position: "relative", top: "15px", left: "11.5rem"}}
+                    style={{position: "absolute", top: "3px", right: "3px"}}
                     onClick={resetMenu}
                     >x</button>
                 )

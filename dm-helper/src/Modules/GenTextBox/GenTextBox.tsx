@@ -18,15 +18,9 @@ const GenBoxStyles: CSS.Properties = {
     alignItems: "center",
     width: "12rem",
     height: "20px",
-    fontSize: "12px",
+    fontSize: "13px",
 }
-const ReloadImgStyles: CSS.Properties = {
-    width: "10px",
-    height: "10px",
-}
-const ButtonImageStyles: CSS.Properties = {
-    border: "none"
-}
+
 
 const GenTextBox = ({className, text, payload, onClick, value}:GenTextBoxProps) => {
     return(

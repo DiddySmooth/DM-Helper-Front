@@ -17,7 +17,7 @@ const GenBoxContainerStyle: CSS.Properties = {
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "flex-start",
     textAlign: "center",
 }
 
@@ -92,7 +92,7 @@ const RandomNpc = () => {
     return(
         <div className ="npc" >
             <div style={GenBoxContainerStyle}>
-                <h1 style={{width: "600px"}}>General Info</h1>
+                <h1 style={{width: "600px"}}>Random Npc</h1>
                 <GenTextBox className="npcBox"payload={npc.name}text="Name: " onClick={onClick} value="Name"/>
                 <GenTextBox className="npcBox"payload={npc.race}text="Race: " onClick={onClick} value= "Race"/>
                 <GenTextBox className="npcBox"payload={npc.gender}text="Gender: " onClick={onClick} value= "Gender"/>
