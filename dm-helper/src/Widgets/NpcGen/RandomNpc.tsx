@@ -1,9 +1,14 @@
 import { useState, useEffect, MouseEvent } from 'react';
 import CSS from 'csstype'
-import GenTextBox from '../../../Modules/GenTextBox/GenTextBox';
-import Button from '../../../Components/Buttons/Button/Button';
+
+//Components
+import GenTextBox from '../../Modules/GenTextBox/GenTextBox';
+import Button from '../../Components/Buttons/Button/Button';
+
+//Helper Functions
 import { races } from "./Arrays"
 import { setNames, setAges, setGenders, setJobs, setTraits, setEyeColors, setHairColors, setHairLengths, setHairTextures, setSkinColors, setSkinFeatures } from "./Functions"
+
 import "./RandomNpc.css"
 
 const GenBoxContainerStyle: CSS.Properties = {
@@ -13,12 +18,12 @@ const GenBoxContainerStyle: CSS.Properties = {
     flexWrap: "wrap",
     justifyContent: "center",
     alignItems: "center",
-    border: "3px solid black",
     textAlign: "center",
 }
 
+
 const RandomNpc = () => {
-    // work on making this an interface 
+    // work on making this an interface maybe someday
     const [npc, setNpc] = useState({ 
         race: "",
         name: "",
@@ -85,7 +90,7 @@ const RandomNpc = () => {
     
     
     return(
-        <div className ="npc">
+        <div className ="npc" >
             <div style={GenBoxContainerStyle}>
                 <h1 style={{width: "600px"}}>General Info</h1>
                 <GenTextBox className="npcBox"payload={npc.name}text="Name: " onClick={onClick} value="Name"/>

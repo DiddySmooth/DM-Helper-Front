@@ -1,24 +1,25 @@
 import { useState, MouseEvent } from 'react';
 import CSS from 'csstype'
 
-import Button from '../../../Components/Buttons/Button/Button';
-import GenTextBox from '../../../Modules/GenTextBox/GenTextBox';
+//Components
+import Button from '../../Components/Buttons/Button/Button';
+import GenTextBox from '../../Modules/GenTextBox/GenTextBox';
+
+//Helper functions
 import { RandomItem } from './Functions';
 
 
 const GenBoxContainerStyle: CSS.Properties = {
-    width: "635px",
+    width: "25rem",
+    height: "25rem",
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "black",
-    color: "white",
-    border: "3px solid black",
     textAlign: "center",
 }
 
-const RandomMagicShop = () => {
+const MagicShop = () => {
     const [owner, setOwner] = useState<string>()
     const [name, setName] = useState<string>()
     const [item1, setItem1] = useState<string>()
@@ -58,4 +59,4 @@ const RandomMagicShop = () => {
       </div>
     )
 }
-export default RandomMagicShop
+export default MagicShop

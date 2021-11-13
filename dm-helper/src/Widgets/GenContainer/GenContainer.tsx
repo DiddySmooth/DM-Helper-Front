@@ -3,7 +3,8 @@ import { useState, MouseEvent } from "react"
 
 //components
 import Button from '../../Components/Buttons/Button/Button'
-import RandomNpc from '../../Pages/Generators/NpcGen/RandomNpc'
+import MagicShop from '../MagicShopGen/MagicShop'
+import RandomNpc from '../NpcGen/RandomNpc'
 
 
 
@@ -17,7 +18,8 @@ const GenContainerStyles: CSS.Properties = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#fffaf0"
+    backgroundColor: "#fffaf0",
+    flexDirection: "column",
 }
 const MenuStyles: CSS.Properties = {
     display: "flex",
@@ -51,31 +53,46 @@ const GenContainer = () => {
         }
         setAddMenuOpen(false)
     }
-
+    const resetMenu = () => {
+        setSelectedGen("none")
+        setPlusMenu(true)
+    }
     return(
-      <div style={GenContainerStyles}>
-        
-        {addMenuOpen &&(
-            <div style={MenuStyles}>
-                <Button text="NPC" value="npc" width="100%" onClick={onClick}/>
-                <Button text="Magic Shop" value="magic" width="100%" onClick={onClick}/>
-                <Button text="Town" value="town" width="100%" onClick={onClick}/>
-            </div>
-        )}
-        {plusMenu &&(
-            <Button 
-                value="+" 
-                text="+" 
-                width="50px" 
-                height="50px" 
-                color="white"
-                onClick={addClick}
-            />
-        )}
-        {selectedGen === "npc" &&(
-            <RandomNpc />
-        )}
-      </div>
+        <div style={GenContainerStyles}>
+            {!plusMenu &&(
+                !addMenuOpen &&(
+                    <button 
+                    style={{position: "relative", top: "15px", left: "11.5rem"}}
+                    onClick={resetMenu}
+                    >x</button>
+                )
+            )}
+
+            {addMenuOpen &&(
+                <div style={MenuStyles}>
+                    <Button text="NPC" value="npc" width="100%" onClick={onClick}/>
+                    <Button text="Magic Shop" value="magic" width="100%" onClick={onClick}/>
+                    <Button text="Town" value="town" width="100%" onClick={onClick}/>
+                </div>
+            )}
+            {plusMenu &&(
+                <Button 
+                    value="+" 
+                    text="+" 
+                    width="50px" 
+                    height="50px" 
+                    color="white"
+                    onClick={addClick}
+                />
+            )}
+            {selectedGen === "npc" &&(
+                <RandomNpc />
+            )}
+            {selectedGen === "magic" &&(
+                <MagicShop />
+            )}
+            
+        </div>
     )
 }
 export default GenContainer

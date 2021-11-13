@@ -10,7 +10,6 @@ export type ButtonProps = {
     color?: string;
 }
 
-
 const Button = ({ text, onClick, value, width, height, color}: ButtonProps) => {
     const ButtonStyles: CSS.Properties = {
         backgroundColor: `${color}`,
