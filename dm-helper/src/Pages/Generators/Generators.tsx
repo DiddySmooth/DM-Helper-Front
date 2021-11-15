@@ -21,10 +21,6 @@ const Generators = () => {
             <GenContainer />
             <GenContainer />
             <GenContainer />
-            <GenContainer />
-            <GenContainer />
-            <GenContainer />
-            <GenContainer />
         </div>
     )
 }
