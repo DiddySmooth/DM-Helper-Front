@@ -36,7 +36,7 @@ const Register = () => {
         event.preventDefault()
         let res = await apiUserRegister(username, password, email)
         console.log(res)
-        if(!(res.data.hasOwnProperty("error"))){
+        if((res.data.hasOwnProperty("error")) !== true){
             localStorage.setItem('userId', res.data.id)
             setName(username)
         }
