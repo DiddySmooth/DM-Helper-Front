@@ -16,8 +16,8 @@ const GenBoxContainerStyle: CSS.Properties = {
     height: "100",
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
+    justifyContent: "center",
+    alignItems: "center"
 }
 
 

@@ -19,6 +19,7 @@ const GenBoxStyles: CSS.Properties = {
     width: "12rem",
     height: "20px",
     fontSize: "13px",
+    marginTop: "1.5rem"
 }
 
 
