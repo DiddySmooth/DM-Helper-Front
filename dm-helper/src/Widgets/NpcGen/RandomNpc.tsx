@@ -13,11 +13,10 @@ import "./RandomNpc.css"
 
 const GenBoxContainerStyle: CSS.Properties = {
     width: "25rem",
-    height: "100",
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
+    justifyContent: "center",
+    alignItems: "space-between",
 }
 
 
@@ -90,14 +89,14 @@ const RandomNpc = () => {
     
     return(
         <div style={GenBoxContainerStyle} className ="npc">
-            <h1 style={{width: "600px"}}>Random Npc</h1>
+            <h1 style={{width: "100%"}}>Random Npc</h1>
             <GenTextBox className="npcBox"payload={npc.name}text="Name: " onClick={onClick} value="Name"/>
             <GenTextBox className="npcBox"payload={npc.race}text="Race: " onClick={onClick} value= "Race"/>
             <GenTextBox className="npcBox"payload={npc.gender}text="Gender: " onClick={onClick} value= "Gender"/>
             <GenTextBox className="npcBox"payload={npc.job}text="Profession: " onClick={onClick}  value="Job"/>
             <GenTextBox className="npcBox"payload={npc.age}text="Age: "  onClick={onClick} value="Age"/>
             <GenTextBox className="npcBox"payload={npc.trait}text="Personality Trait: " onClick={onClick} value="Traits"/>
-            <h1 style={{width: "600px"}}>Appearance</h1>
+            <h1 style={{width: "100%"}}>Appearance</h1>
             <GenTextBox className="npcBox"payload={npc.skinColor}text="Skin Color: " onClick={onClick} value="Skin Color"/>
             <GenTextBox className="npcBox"payload={npc.skinFeature}text="Skin Feature: " onClick={onClick} value="Skin Feature"/>
             <GenTextBox className="npcBox"payload={npc.hairColor}text="Hair Color: " onClick={onClick} value="Hair Color"/>

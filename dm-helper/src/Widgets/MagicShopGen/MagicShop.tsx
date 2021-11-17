@@ -13,11 +13,7 @@ const GenBoxContainerStyle: CSS.Properties = {
     width: "25rem",
     height: "25rem",
     display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "center",
-    alignItems: "flex-start",
-    textAlign: "center",
-    
+
 }
 
 const MagicShop = () => {

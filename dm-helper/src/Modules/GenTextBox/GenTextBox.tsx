@@ -1,9 +1,11 @@
-import TextBox from "../../Components/TextBox/TextBox"
-import image from "../../Assets/reload.png"
 import { MouseEvent } from "react"
 import CSS from 'csstype'
-import Button from "../../Components/Buttons/Button/Button"
+
+//Components
+import TextBox from "../../Components/TextBox/TextBox"
+import image from "../../Assets/reload.png"
 import PictureButton from "../../Components/Buttons/PictureButton/PictureButton"
+
 export type GenTextBoxProps = {
     className: string;
     payload: any;
@@ -12,13 +14,14 @@ export type GenTextBoxProps = {
     value: string;
 }
 const GenBoxStyles: CSS.Properties = {
-    border: "1px solid white",
+    border: "1px solid grey",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
     width: "12rem",
     height: "20px",
     fontSize: "13px",
+    padding: ".1rem"
 }
 
 
