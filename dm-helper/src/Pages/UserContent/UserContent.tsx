@@ -1,6 +1,7 @@
+
 const UserContent = () => {
     return(
-        <div>Sup Bitch</div>
+        <div>Hello</div>
     )
 }
 export default UserContent
