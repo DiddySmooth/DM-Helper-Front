@@ -8,6 +8,7 @@ import Home from './Pages/Home/Home';
 import { useStoreActions, useStoreState } from './Store/hooks';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
+import UserContent from './Pages/UserContent/UserContent';
 
 
 
@@ -46,6 +47,7 @@ function App() {
         <Route exact path="/gen"><Generators /></Route>
         <Route exact path="/login">{name ? <Redirect to="/home" />:<Login />}</Route>
         <Route exact path="/register">{name ? <Redirect to="/home" />:<Register />}</Route>
+        <Route exact path="/cc"><UserContent /></Route>
     </div>
   );
 }

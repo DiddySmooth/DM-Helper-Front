@@ -12,7 +12,7 @@ export type GenVariant = | "npc" | "magic" | "town" | "none"
 
 const GenContainerStyles: CSS.Properties = {
     width: "25rem",
-    height: "50rem",
+    height: "25rem",
     border: "1px solid black",
     margin: "10px",
     display: "flex",
