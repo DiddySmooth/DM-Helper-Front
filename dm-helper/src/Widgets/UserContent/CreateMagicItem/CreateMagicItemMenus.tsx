@@ -8,8 +8,8 @@ import DropDownInput from "../../../Components/Inputs/DropDownInput"
 const CreateMagicItemMenu = () => {
     const [name, setName] = useState<string>("")
     const [description, setDescription] = useState<string>("")
-    const [type, setType] = useState<string>("")
-    const [attunement, setAttunement] = useState<string>("")
+    const [type, setType] = useState<string>("Armor")
+    const [attunement, setAttunement] = useState<string>("true")
 
     const ItemOptions = [
         {value: "Armor",text: "Armor"},
