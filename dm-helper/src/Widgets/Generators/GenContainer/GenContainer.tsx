@@ -2,7 +2,7 @@ import CSS from 'csstype'
 import { useState, MouseEvent } from "react"
 
 //components
-import Button from '../../Components/Buttons/Button/Button'
+import Button from '../../../Components/Buttons/Button/Button'
 import MagicShop from '../MagicShopGen/MagicShop'
 import RandomNpc from '../NpcGen/RandomNpc'
 

@@ -3,7 +3,7 @@ import CSS from 'csstype'
 
 //Components
 import Label from '../../Components/Labels/Label'
-import TextInput from '../../Components/Inputs/Inputs'
+import TextInput from '../../Components/Inputs/TextInput'
 import SubmitButton from '../../Components/Buttons/SubmitButton/SubmitButton'
 
 //api
@@ -47,11 +47,11 @@ const Register = () => {
             <h1>Register</h1>
             <form onSubmit={handleSubmit}>
                 <Label text="Email" />
-                <TextInput text="Email" onChange={(e) => setEmail(e.target.value)} value={email}/>
+                <TextInput text="Email" onChange={(e) => setEmail(e.target.value)} value={email} />
                 <Label text="Username" />
-                <TextInput text="Username" onChange={(e) => setUsername(e.target.value)} value={username}/>
+                <TextInput text="Username" onChange={(e) => setUsername(e.target.value)} value={username} />
                 <Label text="Password" />
-                <TextInput text="Password" onChange={(e) => setPassword(e.target.value)} value={password}/>
+                <TextInput text="Password" onChange={(e) => setPassword(e.target.value)} value={password} />
                 <SubmitButton value="Register"/>
             </form>
         </div>

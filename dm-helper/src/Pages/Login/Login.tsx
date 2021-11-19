@@ -2,7 +2,7 @@ import { useState } from "react"
 import CSS from 'csstype'
 
 //Components
-import TextInput from "../../Components/Inputs/Inputs"
+import TextInput from "../../Components/Inputs/TextInput"
 import SubmitButton from "../../Components/Buttons/SubmitButton/SubmitButton"
 import Label from "../../Components/Labels/Label"
 
@@ -45,9 +45,9 @@ const Login = () => {
       <div style={LoginStyles}>
           <form onSubmit={handleSubmit}>
                 <Label text="Username"/> 
-                <TextInput text="Username" onChange={(e) => setUsername(e.target.value)} value={username}/>
+                <TextInput text="Username" onChange={(e) => setUsername(e.target.value)} value={username} />
                 <Label text="Password"/> 
-                <TextInput text="Password" onChange={(e) => setPassword(e.target.value)} value={password}/>
+                <TextInput text="Password" onChange={(e) => setPassword(e.target.value)} value={password} />
                 <SubmitButton value="Login"/>
           </form>
       </div>

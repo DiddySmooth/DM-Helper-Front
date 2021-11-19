@@ -1,7 +1,8 @@
 import { apiGetMagicItems } from "../../API/Content/MagicItems/MagicItems"
 import { IMagicItem } from "../../Interface/CustomContent/Items/Items"
 import { useState, useEffect } from "react"
-import TextInput from "../../Components/Inputs/Inputs"
+import TextInput from "../../Components/Inputs/TextInput"
+import CreateMagicItemMenu from "../../Widgets/UserContent/CreateMagicItem/CreateMagicItemMenus"
 
 const UserContent = () => {
 
@@ -26,14 +27,7 @@ const UserContent = () => {
                 </>
                 )}
             </div>
-            <div>
-                <h1>Create Magic Item</h1>
-                <form>
-                    <TextInput text="Name" value="name"/>
-                    <TextInput text="Description" value="Description"/>
-                    <TextInput text="Name" value="name"/>
-                </form>
-            </div>
+            <CreateMagicItemMenu />
         </div>
     )
 }

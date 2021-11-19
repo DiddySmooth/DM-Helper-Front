@@ -1,7 +1,7 @@
 import CSS from 'csstype'
 
 //Components
-import GenContainer from '../../Widgets/GenContainer/GenContainer';
+import GenContainer from '../../Widgets/Generators/GenContainer/GenContainer';
 
 const GenPageStyles: CSS.Properties = {
     position: "absolute",

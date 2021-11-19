@@ -2,8 +2,8 @@ import { useState, useEffect, MouseEvent } from 'react';
 import CSS from 'csstype'
 
 //Components
-import GenTextBox from '../../Modules/GenTextBox/GenTextBox';
-import Button from '../../Components/Buttons/Button/Button';
+import GenTextBox from '../../../Modules/GenTextBox/GenTextBox';
+import Button from '../../../Components/Buttons/Button/Button';
 
 //Helper Functions
 import { races } from "./Arrays"
