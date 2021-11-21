@@ -30,7 +30,7 @@ const LoginStyles: CSS.Properties = {
 const Login = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const {setName} = useStoreActions(store => store)
+    const {setName, setId} = useStoreActions(store => store)
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
@@ -38,7 +38,7 @@ const Login = () => {
         
         localStorage.setItem('userId', res.data.id)
         setName(username)
-        
+        setId(res.data.id)
     }
 
     return (

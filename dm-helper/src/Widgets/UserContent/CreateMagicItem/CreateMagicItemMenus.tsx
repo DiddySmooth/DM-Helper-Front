@@ -3,13 +3,17 @@ import { useState } from "react"
 import TextAreaInput from "../../../Components/Inputs/TextAreaInput"
 import SubmitButton from "../../../Components/Buttons/SubmitButton/SubmitButton"
 import DropDownInput from "../../../Components/Inputs/DropDownInput"
-
+import { useStoreState } from '../../../Store/hooks';
+import { apiCreateMagicItem } from "../../../API/Content/MagicItems/MagicItems"
 
 const CreateMagicItemMenu = () => {
     const [name, setName] = useState<string>("")
     const [description, setDescription] = useState<string>("")
     const [type, setType] = useState<string>("Armor")
     const [attunement, setAttunement] = useState<string>("true")
+    const { id } = useStoreState((store) => store)
+
+    
 
     const ItemOptions = [
         {value: "Armor",text: "Armor"},
@@ -28,9 +32,14 @@ const CreateMagicItemMenu = () => {
         {value: "false", text: "No Attunement"}
     ]
 
+
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) =>{
         event.preventDefault()
-        console.log(name, description, type, attunement)
+        const userId = localStorage.getItem('userId')
+        let attune = false
+        if(attunement === "true"){attune = true}
+        if(userId)
+        apiCreateMagicItem(name, type, attune, description, userId)
     }
 
     return(
