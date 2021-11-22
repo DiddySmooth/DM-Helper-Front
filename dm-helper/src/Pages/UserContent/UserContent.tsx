@@ -3,6 +3,7 @@ import { IMagicItem } from "../../Interface/CustomContent/Items/Items"
 import { useState, useEffect } from "react"
 import TextInput from "../../Components/Inputs/TextInput"
 import CreateMagicItemMenu from "../../Widgets/UserContent/CreateMagicItem/CreateMagicItemMenus"
+import MagicItemList from "../../Widgets/UserContent/MagicItemList/MagicItemList"
 
 const UserContent = () => {
 
@@ -14,20 +15,11 @@ const UserContent = () => {
     useEffect(() => {
         getItems()
     },[])
-    if(items){
-        console.log(items)
-    }
-    
+
     return(
         <div>
-            <div>
-                {/* {items.map((item) => 
-                <>
-                    <h1>{item.name}</h1>
-                </>
-                )} */}
-            </div>
             <CreateMagicItemMenu />
+            <MagicItemList data={items}/>
         </div>
     )
 }

@@ -9,7 +9,7 @@ type props = {
 }
 
 const TextAreaInput = ({text, onChange, value, rows}:props) => {
-    const TextAreaStyles: CSS.Properties = {
+    const styles: CSS.Properties = {
         backgroundColor: 'rgba(255, 255, 255, 0.85)',
         color: 'black',
         padding: '0.5rem',
@@ -21,7 +21,7 @@ const TextAreaInput = ({text, onChange, value, rows}:props) => {
     }
 
     return (
-      <textarea style={TextAreaStyles} placeholder={text} onChange={onChange} value={value} rows={rows}/>
+      <textarea style={styles} placeholder={text} onChange={onChange} value={value} rows={rows}/>
     )
 }
 export default TextAreaInput

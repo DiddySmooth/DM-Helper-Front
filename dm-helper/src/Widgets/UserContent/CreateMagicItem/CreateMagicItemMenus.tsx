@@ -5,6 +5,7 @@ import SubmitButton from "../../../Components/Buttons/SubmitButton/SubmitButton"
 import DropDownInput from "../../../Components/Inputs/DropDownInput"
 import { useStoreState } from '../../../Store/hooks';
 import { apiCreateMagicItem } from "../../../API/Content/MagicItems/MagicItems"
+import CSS from 'csstype'
 
 const CreateMagicItemMenu = () => {
     const [name, setName] = useState<string>("")
@@ -40,6 +41,12 @@ const CreateMagicItemMenu = () => {
         if(attunement === "true"){attune = true}
         if(userId)
         apiCreateMagicItem(name, type, attune, description, userId)
+    }
+
+    const styles: CSS.Properties = {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
     }
 
     return(
