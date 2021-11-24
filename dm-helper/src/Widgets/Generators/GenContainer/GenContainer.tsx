@@ -7,7 +7,6 @@ import MagicShop from '../MagicShopGen/MagicShop'
 import RandomNpc from '../NpcGen/RandomNpc'
 
 
-
 export type GenVariant = | "npc" | "magic" | "town" | "none"
 
 const GenContainerStyles: CSS.Properties = {

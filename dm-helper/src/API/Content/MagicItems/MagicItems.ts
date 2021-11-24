@@ -11,7 +11,7 @@ export const apiGetMagicItems = async () => {
     }
 }
 
-export const apiCreateMagicItem = async (name: string, type: string, attunement: boolean, description: string, userId: string) => {
+export const apiCreateMagicItem = async (name: string, type: string, attunement: boolean, description: string, userId: string, rarity: string) => {
     try{
         let res = await axios.post(`${process.env.REACT_APP_BACKEND}/magicItem/create`, {
             name: name,
@@ -19,6 +19,7 @@ export const apiCreateMagicItem = async (name: string, type: string, attunement:
             attunement: attunement,
             description: description,
             userid: userId,
+            rarity: rarity,
         })
 
         return res
