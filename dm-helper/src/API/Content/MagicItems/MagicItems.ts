@@ -27,3 +27,15 @@ export const apiCreateMagicItem = async (name: string, type: string, attunement:
         return error
     }
 }
+
+export const apiLikeMagicItem = async (userId: string, itemId: string) =>{
+    try{
+        let res = await axios.post(`${process.env.REACT_APP_BACKEND}/magicItem/like`, {
+            userid: userId,
+            itemid: itemId,
+            type: "magic item"
+        })
+    }catch (error: any){
+        console.log(error)
+    }
+}
