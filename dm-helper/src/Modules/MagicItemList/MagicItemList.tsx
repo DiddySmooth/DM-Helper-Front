@@ -9,11 +9,12 @@ const MagicItemList = ({data}: props) => {
     return(
         //change the data tables to have attunement just be a string 
         <div>
-            {data.map((item) =>
+            {data && (
+                data.map((item) =>
                 <MagicItemListItem
                     data={item}
                 />
-            )}
+            ))}
         </div>
      
     )

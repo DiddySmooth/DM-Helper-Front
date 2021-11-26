@@ -19,7 +19,7 @@ const UserContent = () => {
     const [spells, setSpells] = useState<ISpells[]>([])
 
     const [magicItemSubmitted, setMagicItemSubmitted] = useState<boolean>(false)
-    const [createMenu, setCreateMenu] = useState<boolean>(false)
+    const [createMenu, setCreateMenu] = useState<boolean>(true)
     const [currentTab, setCurrentTab] = useState<string>("magic item")
 
     const getItems = async() => {
@@ -48,7 +48,7 @@ const UserContent = () => {
             {createMenu &&(
                 <div>
                     <CreateSpellMenu />
-                    {/* <CreateMagicItemMenu onSubmit={onSubmit}/> */}
+                    <CreateMagicItemMenu onSubmit={onSubmit}/>
                 </div>
             )}
             <CustomContentBar onClick={onClick}/>
