@@ -28,6 +28,7 @@ const SpellListItem = ({data}: props) => {
         const userId = localStorage.getItem('userId')
         if(userId)
         apiLikeSpell(userId, data.id)
+        console.log(data)
     }
 
     return(
