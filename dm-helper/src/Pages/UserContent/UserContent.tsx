@@ -3,14 +3,14 @@ import { useState, useEffect, MouseEvent } from "react"
 import CreateMagicItemMenu from "../../Widgets/UserContent/CreateMagicItem/CreateMagicItemMenus"
 import MagicItemList from "../../Modules/MagicItemList/MagicItemList"
 import CustomContentBar from "../../Modules/CustomContentBar/CustomContentBar"
+import SpellList from "../../Modules/SpellList/SpellList"
+import CreateSpellMenu from "../../Widgets/UserContent/CreateSpell/CreateSpellMenu"
 //API
 import { apiGetMagicItems } from "../../API/Content/MagicItems/MagicItems"
+import { apiGetSpells } from "../../API/Content/Spells/Spells"
 //Interfaces
 import { IMagicItem } from "../../Interface/CustomContent/Items/Items"
-import CreateSpellMenu from "../../Widgets/UserContent/CreateSpell/CreateSpellMenu"
-import SpellList from "../../Modules/SpellList/SpellList"
 import { ISpells } from "../../Interface/CustomContent/Spells/Spells"
-import { apiGetSpells } from "../../API/Content/Spells/Spells"
 
 
 const UserContent = () => {
