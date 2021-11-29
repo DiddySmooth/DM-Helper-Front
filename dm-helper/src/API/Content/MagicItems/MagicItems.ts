@@ -30,7 +30,7 @@ export const apiCreateMagicItem = async (name: string, type: string, attunement:
 
 export const apiLikeMagicItem = async (userId: string, itemId: string) =>{
     try{
-        let res = await axios.post(`${process.env.REACT_APP_BACKEND}/magicItem/like`, {
+        let res = await axios.put(`${process.env.REACT_APP_BACKEND}/magicItem/like`, {
             userid: userId,
             itemid: itemId,
             type: "magic item"
