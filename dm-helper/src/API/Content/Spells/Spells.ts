@@ -45,3 +45,14 @@ export const apiGetSpells = async () => {
         return(error)
     }
 }
+export const apiLikeSpell = async (userId: string, itemId: number) =>{
+    try{
+        let res = await axios.put(`${process.env.REACT_APP_BACKEND}/spells/like`, {
+            userid: userId,
+            itemid: itemId,
+            type: "spell"
+        })
+    }catch (error: any){
+        console.log(error)
+    }
+}

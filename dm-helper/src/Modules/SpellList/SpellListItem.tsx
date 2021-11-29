@@ -1,5 +1,6 @@
 import CSS from 'csstype'
 import { useState } from "react"
+import { apiLikeSpell } from '../../API/Content/Spells/Spells'
 import { ISpells } from '../../Interface/CustomContent/Spells/Spells'
 
 type props = {
@@ -23,6 +24,12 @@ const SpellListItem = ({data}: props) => {
         justifyContent: "space-between"
     }
 
+    const onLike = () => {
+        const userId = localStorage.getItem('userId')
+        if(userId)
+        apiLikeSpell(userId, data.id)
+    }
+
     return(
         <div style={styles}>
             <div style={{padding: "10px"}}>
@@ -38,6 +45,9 @@ const SpellListItem = ({data}: props) => {
                     <>
                         <h1>{data.description}</h1>
                         <button onClick={() => {setExpandedView(false)}}>X</button>
+                        <button onClick={onLike}>Like</button>
+                        <label>Likes : </label>
+                        <span>{data.likes}</span>
                     </>
                 )}
             </div> 

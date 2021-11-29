@@ -48,10 +48,10 @@ const MagicItemListItem = ({data}:props) => {
                     <h1>{data.description}</h1>
                     <button onClick={() => {setExpandedView(false)}}>X</button>
                     <button onClick={onLike}>Like</button>
+                    <label>Likes : </label>
+                    <span>{data.likes}</span>
                 </>
-            )
-
-            }
+            )}
         </div>
     </div>
     )
