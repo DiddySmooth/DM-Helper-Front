@@ -54,7 +54,7 @@ const NavBar = () => {
             <NavButton destination="/home" text="Home"/>
             <NavButton destination="/gen" text="Generators"/>
             <NavButton destination="/cc" text="Homebrew"/>
-            
+            <NavButton destination="/create" text="Create"/>
         </div>
     )
 }

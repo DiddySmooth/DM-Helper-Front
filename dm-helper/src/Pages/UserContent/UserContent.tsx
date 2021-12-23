@@ -1,10 +1,10 @@
 import { useState, useEffect, MouseEvent } from "react"
 //components
-import CreateMagicItemMenu from "../../Widgets/UserContent/CreateMagicItem/CreateMagicItemMenus"
+import CreateMagicItemMenu from "../../Widgets/Create/CreateMagicItem/CreateMagicItemMenus"
 import MagicItemList from "../../Modules/MagicItemList/MagicItemList"
 import CustomContentBar from "../../Modules/CustomContentBar/CustomContentBar"
 import SpellList from "../../Modules/SpellList/SpellList"
-import CreateSpellMenu from "../../Widgets/UserContent/CreateSpell/CreateSpellMenu"
+import CreateSpellMenu from "../../Widgets/Create/CreateSpell/CreateSpellMenu"
 //API
 import { apiGetMagicItems } from "../../API/Content/MagicItems/MagicItems"
 import { apiGetSpells } from "../../API/Content/Spells/Spells"
@@ -39,12 +39,12 @@ const UserContent = () => {
 
     const onClick = (event: MouseEvent) => {
         if(!(event.target instanceof HTMLButtonElement)) return;
+        console.log(event.target.value)       
         setCurrentTab(event.target.value)
     }
 
     return(
         <div>
-            <h1>Create</h1>
             {createMenu &&(
                 <div>
                     <CreateSpellMenu />

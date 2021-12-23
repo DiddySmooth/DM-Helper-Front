@@ -1,16 +1,11 @@
-import CSS from 'csstype'
-import {MouseEvent, useState} from "react"
-import ButtonBar from '../../Components/ButtonBar/ButtonBar'
+import ButtonBar from "../../Components/ButtonBar/ButtonBar"
+import { MouseEvent } from "react-router/node_modules/@types/react";
 
-//Components
-import Button from '../../Components/Buttons/Button/Button'
-
-type props = { 
-    onClick: (event: MouseEvent) => void; 
-}
-
-const CustomContentBar = ({onClick}: props) => {
-
+const Create = () => {
+    const onClick = (event: MouseEvent) => {
+        if(!(event.target instanceof HTMLButtonElement)) return;
+        console.log(event.target.value)
+    }
     const buttons = [{
         text: "Spell",
         value: "spell",
@@ -36,12 +31,13 @@ const CustomContentBar = ({onClick}: props) => {
         value: "class",
         onClick: onClick
     }]
-
-
     return(
         <div>
-            <ButtonBar buttons={buttons} />
+            <ButtonBar 
+                buttons={buttons}
+                color="black"
+            />
         </div>
     )
 }
-export default CustomContentBar
+export default Create
