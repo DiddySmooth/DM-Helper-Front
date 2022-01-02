@@ -13,7 +13,7 @@ import { apiCreateMagicItem } from "../../../API/Content/MagicItems/MagicItems"
 type props = {
     onSubmit:() => void;
 }
-const CreateMagicItemMenu = ({onSubmit}: props) => {
+const CreateMagicItemMenu = () => {
     const [name, setName] = useState<string>("")
     const [description, setDescription] = useState<string>("")
     const [type, setType] = useState<string>("Armor")
@@ -66,7 +66,6 @@ const CreateMagicItemMenu = ({onSubmit}: props) => {
         apiCreateMagicItem(name, type, attune, description, userId, rarity)
         resetState()
         console.log("submitted")
-        onSubmit()
     }
     
     return(

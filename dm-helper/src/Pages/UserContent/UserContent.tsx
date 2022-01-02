@@ -45,12 +45,6 @@ const UserContent = () => {
 
     return(
         <div>
-            {createMenu &&(
-                <div>
-                    <CreateSpellMenu />
-                    <CreateMagicItemMenu onSubmit={onSubmit}/>
-                </div>
-            )}
             <CustomContentBar onClick={onClick}/>
             {currentTab === "magic item" && (
                 <MagicItemList data={magicItems}/>
