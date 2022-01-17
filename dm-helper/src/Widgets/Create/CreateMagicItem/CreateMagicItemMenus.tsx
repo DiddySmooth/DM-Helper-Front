@@ -10,9 +10,6 @@ import { useStoreState } from '../../../Store/hooks';
 //API
 import { apiCreateMagicItem } from "../../../API/Content/MagicItems/MagicItems"
 
-type props = {
-    onSubmit:() => void;
-}
 const CreateMagicItemMenu = () => {
     const [name, setName] = useState<string>("")
     const [description, setDescription] = useState<string>("")
@@ -21,33 +18,9 @@ const CreateMagicItemMenu = () => {
     const [rarity, setRarity] = useState<string>("")
     const { id } = useStoreState((store) => store)
 
-    
-
-    const ItemOptions = [
-        {value: "Armor",text: "Armor"},
-        {value: "Potion",text: "Potion"},
-        {value: "Ring", text: "Ring"},
-        {value: "Rod", text: "Rod"},
-        {value: "Scroll", text: "Scroll"},
-        {value: "Staff", text: "Staff"},
-        {value: "Wand", text: "Wand"},
-        {value: "Weapon", text: "Weapon"},
-        {value: "Wondrous", text: "Wondrous"}
-    ]
-
-    const AttunementOptions = [
-        {value: "true", text: "Attunement"},
-        {value: "false", text: "No Attunement"}
-    ]
-
-    const RarityOptions = [
-        {value: "Common", text: "Common"},
-        {value: "Uncommon", text: "Uncommon"},
-        {value: "Rare", text: "Rare"},
-        {value: "Very Rare", text: "Very Rare"},
-        {value: "Legendary", text: "Legendary"},
-        {value: "Artifact", text: "Artifact"},
-    ]
+    const ItemOptions = ["Armor","Potion","Ring","Rod","Scroll","Staff","Wand","Weapon","Wondrous"]
+    const AttunementOptions = ["True","False"]
+    const RarityOptions = ["Common","Uncommon","Rare","Very Rare","Legendary","Artifact",]
 
     const resetState = () => {
         setName("")

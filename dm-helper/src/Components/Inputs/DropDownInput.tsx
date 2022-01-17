@@ -1,14 +1,9 @@
 import CSS from "csstype"
 
-type options = {
-    value: string;
-    text: string;
-}
-
 type props = {
     value: string;
     onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-    options: options[];
+    options: string[];
 }
 
 const DropDownInput = ({value, onChange, options}: props) => {
@@ -27,7 +22,7 @@ const DropDownInput = ({value, onChange, options}: props) => {
         <select value={value} onChange={onChange} style={styles}>
             {options.map((option) => 
             <>
-                <option value={option.value}>{option.text}</option>
+                <option value={option}>{option}</option>
             </>
             )
 

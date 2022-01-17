@@ -12,7 +12,7 @@ const TextBoxStyles: CSS.Properties = {
     padding: '0.5rem',
     boxShadow: '0 0 10px rgba(0, 0, 0, 0.3)',
     border: '1px solid black' 
-  };
+};
 
 const TextBox = ({className, text, payload}:TextBoxProps) => {
     return(

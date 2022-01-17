@@ -1,18 +1,16 @@
 import CSS from 'csstype'
 
-export type InputProps = {
-    className?: string;
+export type props = {
     text: string;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     value: string;
-    style?: CSS.Properties;
 }
 
 
 
-const TextInput = ({className, text, onChange, value}:InputProps) => {
+const TextInput = ({text, onChange, value}:props) => {
 
-    const InputStyles: CSS.Properties = {
+    const style: CSS.Properties = {
         backgroundColor: 'rgba(255, 255, 255, 0.85)',
         color: 'black',
         padding: '0.5rem',
@@ -24,7 +22,7 @@ const TextInput = ({className, text, onChange, value}:InputProps) => {
     }
     
     return(
-        <input style={InputStyles}className={className} placeholder={text} onChange={onChange} value={value}/>
+        <input style={style} placeholder={text} onChange={onChange} value={value}/>
     )
 }
 export default TextInput

@@ -21,27 +21,9 @@ const CreateSpellMenu = () => {
     const [description , setDescription] = useState<string>("")
 
 
-    const levelOptions = [
-        {value: "1", text: "1"},
-        {value: "2", text: "2"},
-        {value: "3", text: "3"},
-        {value: "4", text: "4"},
-        {value: "5", text: "5"},
-        {value: "6", text: "6"},
-        {value: "7", text: "7"},
-        {value: "8", text: "8"},
-        {value: "9", text: "9"},
-    ]
-    const schoolOptions = [
-        {value: "Conjuration", text: "Conjuration"},
-        {value: "Necromancy", text: "Necromancy"},
-        {value: "Evocation", text: "Evocation"},
-        {value: "Abjuration", text: "Abjuration"},
-        {value: "Transmutation", text: "Transmutation"},
-        {value: "Divination", text: "Divination"},
-        {value: "Enchantment", text: "Enchantment"},
-        {value: "Illusion", text: "Illusion"},
-    ]
+    const levelOptions = ["1","2","3","4","5","6","7","8","9",]
+    const schoolOptions = ["Conjuration","Necromancy","Evocation","Abjuration","Transmutation","Divination","Enchantment","Illusion"]
+    
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) =>{
         event.preventDefault()
         const userId = localStorage.getItem("userId")

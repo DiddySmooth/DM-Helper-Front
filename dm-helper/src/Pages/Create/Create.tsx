@@ -49,7 +49,7 @@ const Create = () => {
             {selectedMenu == "magic item" &&(
                 <CreateMagicItemMenu />
             )}
-            {selectedMenu == "monster" &&(
+            {selectedMenu == "monster" &&( 
                 <CreateMonsterMenu />
             )}
         </div>
