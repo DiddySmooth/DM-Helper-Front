@@ -1,8 +1,8 @@
 export interface IStats {
-    strength: string;
-    dexterity: string;
-    constitution: string;
-    wisdom: string;
-    intelligence: string;
-    charisma: string;
+    strength: number;
+    dexterity: number;
+    constitution: number;
+    wisdom: number;
+    intelligence: number;
+    charisma: number;
 }

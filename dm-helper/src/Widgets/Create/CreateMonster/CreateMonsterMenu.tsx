@@ -16,12 +16,12 @@ const CreateMonsterMenu = () => {
     const [speed, setSpeed] = useState<string>("")
 
     const [stats, setStats] = useState<IStats>({
-        strength: "0",
-        dexterity: "0",
-        constitution: "0",
-        wisdom: "0",
-        intelligence: "0",
-        charisma: "0"
+        strength: 0,
+        dexterity: 0,
+        constitution: 0,
+        wisdom: 0,
+        intelligence: 0,
+        charisma: 0
     })
     const [savingThrows, setSavingThrows] = useState<string>("")
     const [skills, setSkills] = useState<string>("")
@@ -101,7 +101,9 @@ const CreateMonsterMenu = () => {
                     />
                 </div>
                 <div>
-                    <Skills />
+                    <Skills 
+                        stats={stats}
+                    />
                 </div>
             </form>
         </div>

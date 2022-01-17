@@ -3,7 +3,7 @@ import CSS from 'csstype'
 export type props = {
     text: string;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    value: string | undefined;
+    value: number | undefined;
 }
 
 
