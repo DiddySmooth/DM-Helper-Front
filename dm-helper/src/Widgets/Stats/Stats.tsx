@@ -30,6 +30,7 @@ const Stats = ({stats, setStats, direction}: props) => {
     }else{
         style = RowStyle
     }
+
     return(
         <div style={style}>
             <NumberInput 

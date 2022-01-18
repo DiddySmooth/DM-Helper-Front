@@ -5,6 +5,7 @@ import NumberInput from "../../../Components/Inputs/NumberInput"
 import { IStats } from "../../../Interface/Stats"
 import Stats from "../../Stats/Stats"
 import Skills from "../../Skills/Skills"
+import { ISkills } from "../../../Interface/Skills"
 
 const CreateMonsterMenu = () => {
     const [name, setName] = useState<string>("")
@@ -24,7 +25,26 @@ const CreateMonsterMenu = () => {
         charisma: 0
     })
     const [savingThrows, setSavingThrows] = useState<string>("")
-    const [skills, setSkills] = useState<string>("")
+    const [skills, setSkills] = useState<ISkills>({
+        acrobatics: false,
+        animalHandling: false,
+        arcana: false,
+        athletics: false,
+        deception: false,
+        history: false,
+        insight: false,
+        intimidation: false,
+        investigation: false,
+        medicine: false,
+        nature: false,
+        perception: false,
+        performance: false,
+        persuassion: false,
+        religion: false,
+        sleightOfHand: false,
+        stealth: false,
+        survival: false,
+    })
     const [damageResistances, setDamageResistances] = useState<string>("")
     const [damageVunerabilities, setDamageVunerablilities] = useState<string>("")
     const [damageImmunities, setDamageImmunities] = useState<string>("")
@@ -48,7 +68,64 @@ const CreateMonsterMenu = () => {
         "Lawful Neutral", "True Neutral", "Chaotic Neutral",
         "Lawful Evil", "Neutral Evil", "Chaotic Evil"
     ]
+    const skillChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        console.log(e.target.value)
+        if(e.target.value === "acrobatics"){
+            setSkills(prevState => ({...prevState, acrobatics: !skills.acrobatics}))
+        }
+        else if(e.target.value === "animal handling"){
+            setSkills(prevState => ({...prevState, animalHandling: !skills.animalHandling}))
+        }
+        else if(e.target.value === "arcana"){
+            setSkills(prevState => ({...prevState, arcana: !skills.arcana}))
+        }
+        else if(e.target.value === "athletics"){
+            setSkills(prevState => ({...prevState, athletics: !skills.athletics}))
+        }
+        else if(e.target.value === "deception"){
+            setSkills(prevState => ({...prevState, deception: !skills.deception}))
+        }
+        else if(e.target.value === "history"){
+            setSkills(prevState => ({...prevState, history: !skills.history}))
+        }
+        else if(e.target.value === "insight"){
+            setSkills(prevState => ({...prevState, insight: !skills.insight}))
+        }
+        else if(e.target.value === "intimidation"){
+            setSkills(prevState => ({...prevState, intimidation: !skills.intimidation}))
+        }
+        else if(e.target.value === "investigation"){
+            setSkills(prevState => ({...prevState, investigation: !skills.investigation}))
+        }
+        else if(e.target.value === "medicine"){
+            setSkills(prevState => ({...prevState, medicine: !skills.medicine}))
+        }
+        else if(e.target.value === "nature"){
+            setSkills(prevState => ({...prevState, nature: !skills.nature}))
+        }
+        else if(e.target.value === "perception"){
+            setSkills(prevState => ({...prevState, perception: !skills.perception}))
+        }
+        else if(e.target.value === "performance"){
+            setSkills(prevState => ({...prevState, performance: !skills.performance}))
+        }
+        else if(e.target.value === "persuassion"){
+            setSkills(prevState => ({...prevState, persuassion: !skills.persuassion}))
+        }
+        else if(e.target.value === "religion"){
+            setSkills(prevState => ({...prevState, religion: !skills.religion}))
+        }
+        else if(e.target.value === "sleight of hand"){
+            setSkills(prevState => ({...prevState, sleightOfHand: !skills.sleightOfHand}))
+        }
+        else if(e.target.value === "stealth"){
+            setSkills(prevState => ({...prevState, stealth: !skills.stealth}))
+        }
+        else if(e.target.value === "survival"){
+            setSkills(prevState => ({...prevState, survival: !skills.survival}))
+        }
 
+    }
 
     return(
         <div>
@@ -103,6 +180,8 @@ const CreateMonsterMenu = () => {
                 <div>
                     <Skills 
                         stats={stats}
+                        skills={skills}
+                        onChange={skillChange}
                     />
                 </div>
             </form>
